@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+## React Movies - Part 1
+Intro
+Following along with what you did today in the MERN-Stack Infrastructure - Part 2 lesson, you will be creating your own react-movies application!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You will need to create a new React CodeSandbox project named react-movies.
 
-## Available Scripts
+This application will provide a movie & actor list.
 
-In the project directory, you can run:
+The data for the movies and actors will be provided to you.
 
-### `npm start`
+Here is a link to an example of the final product, but feel free to style the page to your liking! (try not to peek at the code):
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+React Movies Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Exercises
+Start by creating skeleton page-level components for each page of the application plus a navbar:
+<LoginPage>
+<MoviesListPage>
+<MovieDetailPage>
+<ActorListPage>
+<NavBar>
+Set up a user state variable in <App> that will keep track of the user. The user state should be initialed to null (no user) and updated to a string when the user “logs in”.
 
-### `npm test`
+Code <LoginPage> so that when a username is submitted, the user state in <App> is updated to the username causing a re-render…
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Code <App> to conditionally render as follows:
 
-### `npm run build`
+user state has a value?	path in <Route> Component	Component to Render
+No	path="/"	<LoginPage>
+Yes	All Paths	<NavBar>
+Yes	path="/"	<MoviesListPage>
+Yes	path="/movies/:movieName"	<MovieDetailPage>
+Yes	path="/actors"	<ActorsListPage>
+Code the <NavBar> so that it renders whenever a user exists and displays a <Link> for accessing the <MoviesListPage> & <ActorsListPage> as well as the user’s username entered.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# React Movies - Part 2
+For this lab, you will continue working in your existing react-movies project on CodeSandbox.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Part 2 of the lab will focus on the Movie Index & Detail Pages.
 
-### `npm run eject`
+Here is a link to an example of the final product, but feel free to style the page to your liking! (try not to peek at the code)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create a file in the src folder called data.js, then copy/paste the data found at the bottom of this README into that file.
+Do not change any of the data in data.js
+You can then import the data in App.js, or wherever you need it (your path may be different):
+  `import { movies } from "../../data.js";``
+Using the imported movies array, render the list of movies in the < MoviesListPage > component:
+Each movie should be rendered as a < MovieCard > component.
+Each < MovieCard > should display the movie’s poster as the background, the name of the movie & its release date.
+Create a < MovieDetailPage > component that renders the details of a movie when the user clicks on a movie rendered by < MoviesListPage >:
+Use the useParams hook from React Router to access the movieName route parameter defined in the <Route>.
+The detail page should display all relevant information about a single movie:
+title
+releaseDate
+posterPath (as an <img>)
+cast (use the Array.prototype.join method)
+Again, the design choices & styling is up to you!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## React Movies Lab - Part 3
+For this lab, you will continue working in your existing react-movies project on CodeSandbox.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Part 3 of the lab will focus on the < ActorsListPage > component.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Here is a link to an example of the final app, but the design and styling is up to you!
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+React Movies Demo (try not to peek at the code)
+### Exercises
+Using the imported movies array, render a list of all the actors from each movie in the < ActorsListPage >:
+Be aware that certain actors appear in multiple movies, but there should be NO DUPLICATES on this list. See the Hints below for ideas.
